@@ -21,30 +21,28 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
   );
 
   return (
-    <>
-      <Menu.Root>
-        <Menu.Trigger asChild>
-          <Button variant="outline" size="sm">
-            Order by: {currentSortOrder?.label || "Relevance"} <BsChevronDown />
-          </Button>
-        </Menu.Trigger>
-        <Portal>
-          <Menu.Positioner>
-            <Menu.Content>
-              {sortOrders.map((order) => (
-                <Menu.Item
-                  onClick={() => onSelectSortOrder(order.value)}
-                  value={order.value}
-                  key={order.value}
-                >
-                  {order.label}
-                </Menu.Item>
-              ))}
-            </Menu.Content>
-          </Menu.Positioner>
-        </Portal>
-      </Menu.Root>
-    </>
+    <Menu.Root>
+      <Menu.Trigger asChild>
+        <Button variant="outline" size="sm">
+          Order by: {currentSortOrder?.label || "Relevance"} <BsChevronDown />
+        </Button>
+      </Menu.Trigger>
+      <Portal>
+        <Menu.Positioner>
+          <Menu.Content>
+            {sortOrders.map((order) => (
+              <Menu.Item
+                onClick={() => onSelectSortOrder(order.value)}
+                value={order.value}
+                key={order.value}
+              >
+                {order.label}
+              </Menu.Item>
+            ))}
+          </Menu.Content>
+        </Menu.Positioner>
+      </Portal>
+    </Menu.Root>
   );
 };
 
