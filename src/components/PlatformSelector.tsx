@@ -14,30 +14,28 @@ const PlatformSelector = ({ onSelectedPlatform, selectedPlatform }: Props) => {
   if (error) return null;
 
   return (
-    <>
-      <Menu.Root>
-        <Menu.Trigger asChild>
-          <Button variant="outline" size="sm">
-            {selectedPlatform?.name || "Platforms"} <BsChevronDown />
-          </Button>
-        </Menu.Trigger>
-        <Portal>
-          <Menu.Positioner>
-            <Menu.Content>
-              {data.map((platform) => (
-                <Menu.Item
-                  onClick={() => onSelectedPlatform(platform)}
-                  key={platform.id}
-                  value={platform.name}
-                >
-                  {platform.name}
-                </Menu.Item>
-              ))}
-            </Menu.Content>
-          </Menu.Positioner>
-        </Portal>
-      </Menu.Root>
-    </>
+    <Menu.Root>
+      <Menu.Trigger asChild>
+        <Button variant="outline" size="sm">
+          {selectedPlatform?.name || "Platforms"} <BsChevronDown />
+        </Button>
+      </Menu.Trigger>
+      <Portal>
+        <Menu.Positioner>
+          <Menu.Content>
+            {data.map((platform) => (
+              <Menu.Item
+                onClick={() => onSelectedPlatform(platform)}
+                key={platform.id}
+                value={platform.name}
+              >
+                {platform.name}
+              </Menu.Item>
+            ))}
+          </Menu.Content>
+        </Menu.Positioner>
+      </Portal>
+    </Menu.Root>
   );
 };
 

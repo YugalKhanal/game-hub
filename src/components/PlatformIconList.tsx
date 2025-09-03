@@ -32,19 +32,17 @@ const PlatformIconList = ({ platforms }: Props) => {
   };
 
   return (
-    <>
-      <HStack marginY={2}>
-        {platforms.map((platform) => {
-          //some games don't have the icons in the iconMap so renders and error and the webpage crashes so check if there is an icon and only render the icon
-          const IconComponent = iconMap[platform.slug];
-          return (
-            IconComponent && (
-              <Icon key={platform.id} as={IconComponent} color="gray.500" />
-            )
-          );
-        })}
-      </HStack>
-    </>
+    <HStack marginY={2}>
+      {platforms.map((platform) => {
+        //some games don't have the icons in the iconMap so renders and error and the webpage crashes so check if there is an icon and only render the icon
+        const IconComponent = iconMap[platform.slug];
+        return (
+          IconComponent && (
+            <Icon key={platform.id} as={IconComponent} color="gray.500" />
+          )
+        );
+      })}
+    </HStack>
   );
 };
 
